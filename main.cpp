@@ -1,61 +1,58 @@
 #include <iostream>
-#include <list>
 
 #include "entities/jaritem/JarItem.hpp"
 #include "entities/jar/Jar.hpp"
-
-using namespace std;
 
 bool run = true;
 Jar jar;
 
 void displayMenu() {
-    cout << " - - Menu - - " << endl;
-    cout << "1) Add item to jar" << endl;
-    cout << "2) Remove item from jar" << endl;
-    cout << "3) View single jar item" << endl;
-    cout << "4) View all jar items" << endl;
-    cout << "5) Exit" << endl;
-    cout << endl;
+    std::cout << " - - Menu - - " << std::endl;
+    std::cout << "1) Add item to jar" << std::endl;
+    std::cout << "2) Remove item from jar" << std::endl;
+    std::cout << "3) View single jar item" << std::endl;
+    std::cout << "4) View all jar items" << std::endl;
+    std::cout << "5) Exit" << std::endl;
+    std::cout << std::endl;
 }
 
 void addItem() {
-    string itemName;
-    string itemContents;
-    cout << "Enter the name of the item to be added: ";
-    cin >> itemName;
-    cout << "What will this item contain: ";
-    cin >> itemContents;
+    std::string itemName;
+    std::string itemContents;
+    std::cout << "Enter the name of the item to be added: ";
+    std::cin >> itemName;
+    std::cout << "What will this item contain: ";
+    std::cin >> itemContents;
     JarItem newItem;
     newItem.setName(itemName);
     newItem.setContent(itemContents);
     jar.addItem(newItem);
-    cout << "New item added!" << endl;
+    std::cout << "New item added!" << std::endl;
 }
 
 void removeItem() {
-    string itemName;
-    cout << "Enter the name of the item to be removed: ";
-    cin >> itemName;
+    std::string itemName;
+    std::cout << "Enter the name of the item to be removed: ";
+    std::cin >> itemName;
     JarItem item = jar.getItemByName(itemName);
-    if (item.getName() == "NOITEM") cout << "No item was found with that name!" << endl;
+    if (item.getName() == "NOITEM") std::cout << "No item was found with that name!" << std::endl;
     else {
         jar.deleteItemByName(itemName);
-        cout << "Item removed!" << endl;
+        std::cout << "Item removed!" << std::endl;
     }
 }
 
 void viewSingleItem() {
-    string itemName;
-    cout << "Enter the name of the item to be found: ";
-    cin >> itemName;
+    std::string itemName;
+    std::cout << "Enter the name of the item to be found: ";
+    std::cin >> itemName;
     JarItem item = jar.getItemByName(itemName);
-    if (item.getName() == "NOITEM") cout << "No item found with that name!" << endl;
-    else cout << "Name: " << item.getName() << endl << "Content: " << item.getContent() << endl;
+    if (item.getName() == "NOITEM") std::cout << "No item found with that name!" << std::endl;
+    else std::cout << "Name: " << item.getName() << std::endl << "Content: " << item.getContent() << std::endl;
 }
 
 void viewAllJarItems() {
-    cout << "Jar items:" << endl << jar.listAllItems() << endl;
+   std::cout << "Jar items:" << std::endl << jar.listAllItems() << std::endl;
 }
 
 int main() {
@@ -63,8 +60,8 @@ int main() {
     while (run)
     {
        displayMenu();
-        cout << "Enter a menu option: ";
-        cin >> menuChoice;
+        std::cout << "Enter a menu option: ";
+        std::cin >> menuChoice;
 
         switch (menuChoice) {
             case 1:
@@ -83,7 +80,7 @@ int main() {
                 run = false;
                 break;
             default:
-                cout << "You did not enter a valid menu option!";
+                std::cout << "You did not enter a valid menu option!";
                 break;
         }
     }

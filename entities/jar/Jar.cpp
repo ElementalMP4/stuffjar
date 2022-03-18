@@ -1,17 +1,14 @@
 #include <iostream>
-#include <list>
 
 #include "Jar.hpp"
 #include "../jaritem/JarItem.hpp"
-
-using namespace std;
 
 void Jar::addItem(JarItem item) {
     items.push_front(item);
 }
 
-JarItem Jar::getItemByName(string itemName) {
-    list<JarItem>:: iterator it;
+JarItem Jar::getItemByName(std::string itemName) {
+    std::list<JarItem>::iterator it;
     bool keepLooking = true;
     JarItem item;
     item.setName("NOITEM");
@@ -26,8 +23,8 @@ JarItem Jar::getItemByName(string itemName) {
     return item;
 }
 
-void Jar::deleteItemByName(string itemName) {
-list<JarItem>:: iterator it;
+void Jar::deleteItemByName(std::string itemName) {
+    std::list<JarItem>::iterator it;
     for (it = items.begin(); it != items.end(); it++)
     {
         if (it-> getName() == itemName) {
@@ -36,9 +33,9 @@ list<JarItem>:: iterator it;
     }
 }
 
-string Jar::listAllItems() {
-    list<JarItem>:: iterator it;
-    string jarContents;
+std::string Jar::listAllItems() {
+    std::list<JarItem>::iterator it;
+    std::string jarContents;
     for (it = items.begin(); it != items.end(); it++)
     {
         jarContents += it -> getName() + "\n";

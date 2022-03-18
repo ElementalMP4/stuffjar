@@ -2,20 +2,18 @@
 
 #include "JarItem.hpp"
 
-using namespace std;
-
-string JarItem::getName() {
+std::string JarItem::getName() {
     return name;
 }
 
-string JarItem::getContent() {
+std::string JarItem::getContent() {
     return content;
 }
 
-void JarItem::setName(string itemName) {
+void JarItem::setName(std::string itemName) {
     name = itemName;
 }
 
-void JarItem::setContent(string itemContent) {
+void JarItem::setContent(std::string itemContent) {
     content = itemContent;
 }

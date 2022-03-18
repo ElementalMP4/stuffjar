@@ -3,14 +3,12 @@
 
 #include "../jaritem/JarItem.hpp"
 
-using namespace std;
-
 class Jar {
     private:
-        list<JarItem> items;
+        std::list<JarItem> items;
     public:
-        JarItem getItemByName(string);
-        void deleteItemByName(string);
+        JarItem getItemByName(std::string);
+        void deleteItemByName(std::string);
         void addItem(JarItem);
-        string listAllItems();
+        std::string listAllItems();
 };

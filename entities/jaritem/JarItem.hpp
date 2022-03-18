@@ -2,15 +2,13 @@
 
 #include <iostream>
 
-using namespace std;
-
 class JarItem {
     private:
-        string name;
-        string content;
+        std::string name;
+        std::string content;
     public:
-        string getName();
-        string getContent();
-        void setName(string);
-        void setContent(string);
+        std::string getName();
+        std::string getContent();
+        void setName(std::string);
+        void setContent(std::string);
 };
